@@ -1,6 +1,5 @@
 # Portfolio
 Abraham Luna
 
-## ¿Porqué es privado el repositorio?
-Este repositorio contiene herramientas que podrían ser utilizadas por personas sin conocimiento o mal intencionadas para extraer información de servidores o dañar la
-disponibilidad de estos. Por ello he decidido mantenerlo fuera del alcance de aquellos que no posean mi autorización
+## Why is this repository private?
+This repository contains tools that could be used by malicious people to extract information from servers or to affect their availability. That is why I have decided to keep it out of the reach of those who do not have my authorization.

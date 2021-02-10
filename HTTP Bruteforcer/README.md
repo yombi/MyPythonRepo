@@ -47,5 +47,5 @@ Likewise, the program will serve to display relevant information about the serve
 - HTTP methods enabled through the OPTIONS method
 - Validity of the certificate and its information (in case the service is using HTTPS)
 
-## Descripción adicional:
+## Aditional information:
 It only performs the scan from the url that is indicated to deeper directories, that is, if the url http://something.com/archives/ is sent as a parameter it does not search in external directories or on the same level, for this case example: http://algo.com/ or http://algo.com/imagenes/

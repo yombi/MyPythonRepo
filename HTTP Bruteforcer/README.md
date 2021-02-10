@@ -1,51 +1,51 @@
 # HTTP Bruteforcer
 
-## ¿Cómo usarlo?
+## How to use
 ```
-# Sin archivo de configuración:
+# No configuration file:
 python3 main.py -u www.example.local [options]
 
-# Con archivo de configuración:
+# With configuration file:
 python3 main.py -c /path/to/script.config
 
-# Combinado(Se da prioridad a las banderas de la terminal):
+# Some options in the config file and some via prompt(promt has priority):
 python3 main.py [options] -c /path/to/script.config
 
-# Archvio de configuración:
-Las banderas que llevan parametros adicionales deberán separar la bandera del
-parametro por un "=". Asimismo, las banderas serán indicadas por los siguientes nombres:
-* -u:url
-* -v:verbose
-* -r:file_reporte
-* -m:mhttp
-* -i:list_busqueda
-* -s:certificado
-* -a:agente_usuario
-* -e:servidor_ver
-* -t:tiempo_req
+# Configuration file settings:
+Flags carrying additional parameters must separate the flag from the
+parameter by "=". Likewise, the flags will be indicated by the following names:
+* -u=url
+* -v=verbose
+* -r=file_reporte
+* -m=mhttp
+* -i=list_busqueda
+* -s=certificado
+* -a=agente_usuario
+* -e=servidor_ver
+* -t=tiempo_req
 ```
 
-### Banderas Disponibles:
-* -h: Ayuda sobre las opciones del programa.
-* -u: URL sobre la cuál se hará el análisis. Considerar protocolo (HTTP|HTTPS), host (IP|nombre de dominio), puerto y directorio.
-* -v: Modo verboso, sirve para que el programa sea descriptivo durante su ejecución. En caso de no indicarse, debe ser silencioso.
-* -r: Sirve para indicar el archivo donde se reportarán los resultados. Si no se indica, considerar si se escribe en un archivo por defecto o en la salida estándar.
-* -m: sirve para indicarle al programa que busque los método HTTP habilitados.
-* -i: sirve para indicarle al programa la lista de archivos para hacer la búsqueda.
-* -s: sirve para indicarle al programa que dé información sobre TLS/SSL (certificado)
-* -a: sirve para indicarle al programa qué agente de usuario (User-Agent) utilizar en cada petición
-* -e: sirve para indicarle al programa que extraiga las versiones del servidor (encabezados HTTP) y de la aplicación (etiqueta HTML)
-* -t: sirve para indicar una espera de n segundos entre peticiones para evitar bloqueos por parte del servidor.
-* -c: sirve para indicar un archivo de configuración que contenga todas opciones de ejecución deseadas.
+### Flags description:
+* -h: Help.
+* -u: URL on which the analysis will be done. Consider protocol (HTTP | HTTPS), host (IP | domain name), port and directory.
+* -v: Verbose mode
+* -r: Used to indicate the file where the results will be reported. If not stated, consider whether it is written to a file by default or to standard output.
+* -m: used to tell the program to look for enabled HTTP methods.
+* -i: used to indicate to the program the list of files to search.
+* -s: used to tell the program to give information about TLS / SSL (certificate)
+* -a: used to tell the program which user agent (User-Agent) to use in each request
+* -e: used to tell the program to extract the versions of the server (HTTP headers) and the application (HTML tag)
+* -t: used to indicate a wait of n seconds between requests to avoid blocking by the server.
+* -c: used to indicate a configuration file containing all the desired execution options.
 
-## Descripción
-El objetivo de este programa es encontrar archivos con información sensible alojados en servidores web, como por ejemplo, respaldos de bases de datos, repositorios de código, archivos de configuración, etc.
+## Description
+The goal of this program is to find files with sensitive information hosted on web servers, such as, for example, database backups, code repositories, configuration files, etc.
 
-Asimismo, el programa servirá para mostrar información relevante del servidor y la aplicación:
-- Versión del servidor a través de los encabezados HTTP 'Server' y 'X-Powered-By'
-- Versión del CMS, en caso de utilizar uno, a través de la etiqueta HTML 'generator'
-- Métodos HTTP habilitados a través del método OPTIONS
-- Validez del certificado y la información del mismo (en caso de que el servicio esté usando HTTPS)
+Likewise, the program will serve to display relevant information about the server and the application:
+- Server version via HTTP headers 'Server' and 'X-Powered-By'
+- CMS version, if you use one, through the HTML tag 'generator'
+- HTTP methods enabled through the OPTIONS method
+- Validity of the certificate and its information (in case the service is using HTTPS)
 
 ## Descripción adicional:
-Unicamente realiza el escaneo a partir de la url que se le indica a directorios mas profundos, es decir, si se envia como parámetro la url http://algo.com/archivos/ no busca en directorios externos o del mismo nivel por ejemplo: http://algo.com/ o http://algo.com/imagenes/
+It only performs the scan from the url that is indicated to deeper directories, that is, if the url http://something.com/archives/ is sent as a parameter it does not search in external directories or on the same level, for this case example: http://algo.com/ or http://algo.com/imagenes/

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="card card-body">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" class="form-control" name="common_name" placeholder="Common Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="scientific_name" placeholder="Scientific Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="category" placeholder="Category">
+        </div>
+        <button class="btn btn-primary btn-block">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
